@@ -8,11 +8,12 @@
         <meta name="author" content="Geoffrey M. Poore">
         
         <link rel="shortcut icon" href="/scipy2022/img/favicon.ico">
-        <title>Codebraid Preview for VS Code — SciPy 2022</title>
+        <title>Codebraid Preview — SciPy 2022</title>
         <link href="/scipy2022/css/bootstrap.min.css" rel="stylesheet">
         <link href="/scipy2022/css/font-awesome.min.css" rel="stylesheet">
         <link href="/scipy2022/css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/color-brewer.min.css">
+        <link href="/scipy2022/extra.css" rel="stylesheet">
 
         <script src="/scipy2022/js/jquery-1.10.2.min.js" defer></script>
         <script src="/scipy2022/js/bootstrap.min.js" defer></script>
@@ -23,10 +24,23 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="/scipy2022/.">Codebraid Preview for VS Code — SciPy 2022</a>
+                <a class="navbar-brand" href="/scipy2022/.">Codebraid Preview — SciPy 2022</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
                 <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="/scipy2022/." class="nav-link">About</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="/scipy2022/installation/" class="nav-link">Installation</a>
+                            </li>
+                        </ul>
 
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item">
