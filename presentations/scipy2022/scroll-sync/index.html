@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Geoffrey M. Poore" /><link rel="canonical" href="https://codebraid.org/scipy2022/scroll-sync/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Scroll sync - Codebraid Preview — SciPy 2022</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Scroll sync";
+        var mkdocs_page_input_path = "scroll-sync.md";
+        var mkdocs_page_url = "/scipy2022/scroll-sync/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Codebraid Preview — SciPy 2022
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Scroll sync</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#technical-summary">Technical summary</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Codebraid Preview — SciPy 2022</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Scroll sync</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="scroll-sync">Scroll sync</h1>
+<p>Codebraid Preview provides full bidirectional scroll sync between the Markdown
+source and the preview for Markdown variants based on CommonMark, including
+the Pandoc formats <code>commonmark</code>, <code>commonmark_x</code> (CommonMark plus Pandoc
+extensions), and <code>gfm</code> (GitHub-flavored Markdown).  By default, Codebraid
+Preview treats documents as <code>commonmark_x</code>, since it provides
+<a href="https://github.com/jgm/pandoc/wiki/Roadmap">the most features</a>.  Scroll sync
+is bidirectional by default, but the direction can be toggled or it can be
+disabled with the &ldquo;Scroll&rdquo; button in the status bar (bottom right).</p>
+<p><img alt="Animation showing scroll sync and the scroll sync configuration button" src="../scroll-sync.gif" /></p>
+<p>Codebraid Preview still works with Markdown variants that are not based on
+CommonMark, but scroll sync is disabled.  To change the Markdown variant
+globally, modify the extension setting <code>codebraid.preview.pandoc.fromFormat</code>.
+To change the Markdown variant for a single file or all files in a directory
+(folder), create a Pandoc defaults file <code>_codebraid_preview.yaml</code> in the
+directory, and add an entry <code>from: &lt;markdown_variant_name&gt;</code>.</p>
+<h2 id="technical-summary">Technical summary</h2>
+<p><a href="https://github.com/jgm/pandoc/releases/tag/2.11.3">Pandoc 2.11.3</a> was
+released in December 2020.  It added a <code>sourcepos</code> extension for
+CommonMark-based formats.  This attaches source location information to
+elements in the abstract syntax tree (AST) generated by Pandoc.  Codebraid
+Preview uses that data to construct a mapping between the Markdown input and
+the HTML output that is displayed in the preview.  For more details, see the
+<a href="https://procbuild.scipy.org/download/gpoore-2022">paper in the SciPy 2022 proceedings</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright © 2022 Geoffrey M. Poore</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
