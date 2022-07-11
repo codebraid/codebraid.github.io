@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "About";
+        var mkdocs_page_name = "Overview";
         var mkdocs_page_input_path = "index.md";
         var mkdocs_page_url = "/scipy2022/";
       </script>
@@ -42,9 +42,15 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href=".">About</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href=".">Overview</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#more-links">More links</a>
+    <li class="toctree-l2"><a class="reference internal" href="#pandoc-demo">Pandoc demo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#code-execution-demo">Code execution demo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#more-information">More information</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#external-links">External links</a>
     </li>
     </ul>
                 </li>
@@ -66,7 +72,7 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>About</li>
+    <li><a href="." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Overview</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -85,8 +91,29 @@ code blocks and inline code via
 <a href="https://github.com/gpoore/codebraid">Codebraid</a> using Jupyter kernels or
 Codebraid&rsquo;s built-in execution system.  Export to PDF, Microsoft Word, and
 other formats with Pandoc.</p>
+<h2 id="pandoc-demo">Pandoc demo</h2>
+<p>The animation below demonstrates Markdown features.  All Pandoc extensions to
+Markdown syntax are fully supported, because the preview is generated with
+Pandoc itself!  This includes features like math, definition lists, tables,
+strikethrough, subscripts, superscripts, and footnotes.  Full bidirectional
+scroll sync is provided for all Markdown variants based on CommonMark.</p>
 <p><img alt="Example animation of Pandoc features" src="pandoc-demo.gif" /></p>
-<h2 id="more-links">More links</h2>
+<h2 id="code-execution-demo">Code execution demo</h2>
+<p>Optional code execution is provided by
+<a href="https://github.com/gpoore/codebraid">Codebraid</a>.  The animation below shows a
+code block being executed in notebook mode using a Jupyter kernel.  Executing
+a code block is simply a matter of adding a Codebraid attribute to the code
+block and then running Codebraid.  In this case, the code block has the Pandoc
+attributes <code>{.python .cb-nb}</code>. <code>.python</code> specifies the language, and <code>.cb-nb</code>
+specifies code execution using Codebraid&rsquo;s notebook (<code>nb</code>) mode.  The YAML
+metadata at the beginning of the document sets <code>jupyter: true</code> to specify that
+Jupyter kernels are used for code execution instead of Codebraid&rsquo;s built-in
+execution system.</p>
+<p><img alt="Example animation of Codebraid features with a Jupyter kernel" src="codebraid-jupyter-demo.gif" /></p>
+<h2 id="more-information">More information</h2>
+<p>For installation information and details about features, explore the menu or
+follow the &ldquo;Next&rdquo; button at the bottom of the page.</p>
+<h2 id="external-links">External links</h2>
 <ul>
 <li><a href="https://procbuild.scipy.org/download/gpoore-2022">Paper in SciPy 2022 proceedings</a></li>
 <li>Pandoc <a href="https://pandoc.org/">website</a> and
@@ -146,5 +173,5 @@ other formats with Pandoc.</p>
 
 <!--
 MkDocs version : 1.3.0
-Build Date UTC : 2022-07-05 20:35:51.523240+00:00
+Build Date UTC : 2022-07-11 18:20:39.341130+00:00
 -->
