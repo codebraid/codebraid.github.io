@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Geoffrey M. Poore" /><link rel="canonical" href="https://codebraid.org/scipy2022/math/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Geoffrey M. Poore" /><link rel="canonical" href="https://codebraid.org/scipy2022/export/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Math - Codebraid Preview — SciPy 2022</title>
+    <title>Export - Codebraid Preview — SciPy 2022</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,9 +13,9 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Math";
-        var mkdocs_page_input_path = "math.md";
-        var mkdocs_page_url = "/scipy2022/math/";
+        var mkdocs_page_name = "Export";
+        var mkdocs_page_input_path = "export.md";
+        var mkdocs_page_url = "/scipy2022/export/";
       </script>
     
     <script src="../js/jquery-3.6.0.min.js" defer></script>
@@ -53,18 +53,18 @@
                 <li class="toctree-l1"><a class="reference internal" href="../scroll-sync/">Scroll sync</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Math</a>
-    <ul class="current">
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../math/">Math</a>
                 </li>
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../code/">Code execution</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../export/">Export</a>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Export</a>
+    <ul class="current">
+    </ul>
                 </li>
               </ul>
       </div>
@@ -80,7 +80,7 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Math</li>
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Export</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -90,20 +90,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="math">Math</h1>
-<p>The preview includes math support with <a href="https://katex.org/">KaTeX</a>, which is a
-JavaScript library for rendering LaTeX math in the browser.  Inline math uses
-single <code>$</code> delimiters while block math uses double <code>$$</code> delimiters.</p>
-<p>For best previewing results, you may want to type the starting and ending
-delimiters first, and then enter the math between them.  That way, you will
-get a live preview of the math as it is assembled.</p>
-<p><img alt="Animation of math preview" src="../math.gif" /></p>
+                <h1 id="export-with-pandoc">Export with Pandoc</h1>
+<p>To export documents with Pandoc, click on the &ldquo;Pandoc&rdquo; button in the status
+bar (bottom right), then enter a file name in the file dialog that opens and
+save.  Or select the <strong>Export document with Pandoc</strong> command from the
+<strong>Command Palette</strong> (<code>Ctrl+Shift+P</code>).  The format of the exported document
+is inferred from the file extension.</p>
+<p><img alt="Animation showing the Pandoc export button" src="../export.gif" /></p>
+<p>Currently, there is no support for customizing the exported document.  An
+upcoming release is expected to add export customization through the
+<code>_codebraid_preview.yaml</code> file and perhaps other means.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../scroll-sync/" class="btn btn-neutral float-left" title="Scroll sync"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../code/" class="btn btn-neutral float-right" title="Code execution">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../code/" class="btn btn-neutral float-left" title="Code execution"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -127,10 +128,8 @@ get a live preview of the math as it is assembled.</p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../scroll-sync/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../code/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
-    
-      <span><a href="../code/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
