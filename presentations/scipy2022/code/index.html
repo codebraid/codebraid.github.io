@@ -111,8 +111,14 @@ built-in code execution system.</p>
 </ul>
 <p>To run code, install Codebraid.  Add a Codebraid attribute like <code>.cb-run</code> or
 <code>.cb-nb</code> to the code blocks or inline code you want to run.  Then click the
-&ldquo;Codebraid&rdquo; button in the status bar (bottom right).  When code has not yet
-been executed, it is represented by a placeholder box in the preview.</p>
+&ldquo;Codebraid&rdquo; button in the status bar (bottom right), or select the <strong>Run code
+with Codebraid</strong> command from the <strong>Command Palette</strong> (<code>Ctrl+Shift+P</code>).  While
+the Markdown part of the preview updates automatically, code never runs
+automatically.  Code output is cached, though, and the cache loads
+automatically.</p>
+<p>The animation below shows code being executed with the built-in execution
+system.  When code has not yet been executed, it is represented by a
+placeholder box in the preview.</p>
 <p><img alt="Animation of running code with the built-in execution system" src="../code-hello.gif" /></p>
 <h2 id="modified-code">Modified code</h2>
 <p>When executed code is modified, its output is marked as stale in the preview.

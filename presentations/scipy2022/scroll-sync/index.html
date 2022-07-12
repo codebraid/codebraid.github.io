@@ -108,11 +108,12 @@ To change the Markdown variant for a single file or all files in a directory
 directory, and add an entry <code>from: &lt;markdown_variant_name&gt;</code>.</p>
 <h2 id="multi-file-documents">Multi-file documents</h2>
 <p>Pandoc can be given a list of files to combine into a single output document.
-Codebraid Preview provides scroll sync for multi-file documents.  Simply
-create a Pandoc defaults file <code>_codebraid_preview.yaml</code> in the same directory
-as the document files, and list the files under the key <code>input-files</code>.  The
-animation below shows a document that is broken into two files, with the
-following defaults file:</p>
+Codebraid Preview provides scroll sync for multi-file documents.  When you
+scroll the preview, the displayed Markdown file will automatically change
+based on where you are in the preview.  Simply create a Pandoc defaults file
+<code>_codebraid_preview.yaml</code> in the same directory as the document files, and
+list the files under the key <code>input-files</code>.  The animation below shows a
+document that is broken into two files, with the following defaults file:</p>
 <div class="codehilite"><pre><span></span><code>input-files:
 - jupyter_1.md
 - jupyter_2.md

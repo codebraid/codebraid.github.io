@@ -118,7 +118,11 @@
     <a href="https://pypi.org/project/codebraid/">PyPI</a> and
     <a href="https://anaconda.org/conda-forge/codebraid">conda-forge</a>, or directly
     from <a href="https://github.com/gpoore/codebraid/releases">GitHub</a>.</p>
-<p>If you plan to use Jupyter kernels, you will also need
+<p>If you plan to use Codebraid settings in document YAML metadata, you will
+also need
+<a href="https://yaml.readthedocs.io/en/latest/install.html"><code>ruamel.yaml</code></a>
+(can be <code>ruamel_yaml</code> for Anaconda installations).
+If you plan to use Jupyter kernels, you will also need
 <a href="https://github.com/jupyter/jupyter_client"><code>jupyter_client</code></a> and language
 kernels such as
 <a href="https://ipython.readthedocs.io/en/stable/install/kernel_install.html"><code>ipykernel</code></a>.
@@ -136,7 +140,9 @@ for additional Python configuration details.</p>
 <p>Once the extension is installed, open a Markdown file (<code>.md</code> extension).
 Click on the &ldquo;Codebraid Preview&rdquo; button in the status bar (bottom right).
 Or run the <strong>Open Codebraid Preview</strong> command from the <strong>Command Palette</strong>
-(<code>Ctrl+Shift+P</code>, then type command).</p>
+(<code>Ctrl+Shift+P</code>, then type command).  The preview automatically updates when
+the document is modified.  The minimum build interval can be configured with
+the extension setting <code>codebraid.preview.minBuildInterval</code>.</p>
 <p><img alt="Codebraid Preview launch button" src="../codebraid-preview-launch.png" /></p>
               
             </div>
