@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Geoffrey M. Poore" /><link rel="canonical" href="https://codebraid.org/scipy2022/math/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Geoffrey M. Poore" /><link rel="canonical" href="https://codebraid.org/scipy2022/code/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Math - Codebraid Preview — SciPy 2022</title>
+    <title>Code execution - Codebraid Preview — SciPy 2022</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,9 +13,9 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Math";
-        var mkdocs_page_input_path = "math.md";
-        var mkdocs_page_url = "/scipy2022/math/";
+        var mkdocs_page_name = "Code execution";
+        var mkdocs_page_input_path = "code.md";
+        var mkdocs_page_url = "/scipy2022/code/";
       </script>
     
     <script src="../js/jquery-3.6.0.min.js" defer></script>
@@ -53,14 +53,20 @@
                 <li class="toctree-l1"><a class="reference internal" href="../scroll-sync/">Scroll sync</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Math</a>
-    <ul class="current">
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../math/">Math</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../code/">Code execution</a>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Code execution</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#modified-code">Modified code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#non-blocking-execution">Non-blocking execution</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#custom-display">Custom display</a>
+    </li>
+    </ul>
                 </li>
               </ul>
       </div>
@@ -76,7 +82,7 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Math</li>
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Code execution</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -86,20 +92,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="math">Math</h1>
-<p>The preview includes math support with <a href="https://katex.org/">KaTeX</a>, which is a
-JavaScript library for rendering LaTeX math in the browser.  Inline math uses
-single <code>$</code> delimiters while block math uses double <code>$$</code> delimiters.</p>
-<p>For best previewing results, you may want to type the starting and ending
-delimiters first, and then enter the math between them.  That way, you will
-get a live preview of the math as it is assembled.</p>
-<p><img alt="Animation of math preview" src="../math.gif" /></p>
+                <h1 id="code-execution">Code execution</h1>
+<p>Code blocks and inline code can be executed with
+<a href="https://github.com/gpoore/codebraid">Codebraid</a>, using Jupyter kernels or its
+built-in code execution system.</p>
+<ul>
+<li>
+<p>When Jupyter kernels are used, you can get the same output you would see in
+  a Jupyter notebook.  Or you can easily customize what is displayed.</p>
+</li>
+<li>
+<p>The built-in code execution system is convenient when you want to run code
+  exactly as if it were saved to a file and executed as a subprocess.  The
+  built-in system is based on templates and can easily be extended to support
+  additional languages.  For example, Rust support involves less than 50 lines
+  total of templates and configuration.</p>
+</li>
+</ul>
+<p>To run code, install Codebraid.  Add a Codebraid attribute like <code>.cb-run</code> or
+<code>.cb-nb</code> to the code blocks or inline code you want to run.  Then click the
+&ldquo;Codebraid&rdquo; button in the status bar (bottom right).  When code has not yet
+been executed, it is represented by a placeholder box in the preview.</p>
+<p><img alt="Animation of running code with the built-in execution system" src="../code-hello.gif" /></p>
+<h2 id="modified-code">Modified code</h2>
+<p>When executed code is modified, its output is marked as stale in the preview.
+If it has no output, then a placeholder is inserted instead.  All later code
+that is executed in the same session is marked as stale as well, since its
+output may be affected by the modified code chunk.</p>
+<p><img alt="Animation of code being modified and executed" src="../code-modified.gif" /></p>
+<h2 id="non-blocking-execution">Non-blocking execution</h2>
+<p>Code execution does not block the preview from updating.  Code execution is
+decoupled from the preview process, so the preview always remains live!  Keep
+writing while your code runs!</p>
+<p><img alt="Animation of preview updating during code execution" src="../code-non-blocking.gif" /></p>
+<h2 id="custom-display">Custom display</h2>
+<p>Codebraid provides a number of options for customizing the display of code
+output.  The keyword <code>show</code> can be used to specify exactly what is displayed,
+while <code>hide</code> can be used to remove specific elements that are currently shown.</p>
+<p><img alt="Animation of customizing output display" src="../code-display.gif" /></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../scroll-sync/" class="btn btn-neutral float-left" title="Scroll sync"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../code/" class="btn btn-neutral float-right" title="Code execution">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../math/" class="btn btn-neutral float-left" title="Math"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -123,10 +158,8 @@ get a live preview of the math as it is assembled.</p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../scroll-sync/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../math/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
-    
-      <span><a href="../code/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

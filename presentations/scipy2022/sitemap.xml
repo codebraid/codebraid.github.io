@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://codebraid.org/scipy2022/code/</loc>
+         <lastmod>2022-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://codebraid.org/scipy2022/installation/</loc>
          <lastmod>2022-07-12</lastmod>
          <changefreq>daily</changefreq>
