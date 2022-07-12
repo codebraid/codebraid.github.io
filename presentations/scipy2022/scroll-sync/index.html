@@ -52,6 +52,8 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Scroll sync</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#multi-file-documents">Multi-file documents</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#technical-summary">Technical summary</a>
     </li>
     </ul>
@@ -96,6 +98,19 @@ globally, modify the extension setting <code>codebraid.preview.pandoc.fromFormat
 To change the Markdown variant for a single file or all files in a directory
 (folder), create a Pandoc defaults file <code>_codebraid_preview.yaml</code> in the
 directory, and add an entry <code>from: &lt;markdown_variant_name&gt;</code>.</p>
+<h2 id="multi-file-documents">Multi-file documents</h2>
+<p>Pandoc can be given a list of files to combine into a single output document.
+Codebraid Preview provides scroll sync for multi-file documents.  Simply
+create a Pandoc defaults file <code>_codebraid_preview.yaml</code> in the same directory
+as the document files, and list the files under the key <code>input-files</code>.  The
+animation below shows a document that is broken into two files, with the
+following defaults file:</p>
+<div class="codehilite"><pre><span></span><code>input-files:
+- jupyter_1.md
+- jupyter_2.md
+</code></pre></div>
+
+<p><img alt="Animation showing scroll sync across multiple files" src="../scroll-multi-file.gif" /></p>
 <h2 id="technical-summary">Technical summary</h2>
 <p><a href="https://github.com/jgm/pandoc/releases/tag/2.11.3">Pandoc 2.11.3</a> was
 released in December 2020.  It added a <code>sourcepos</code> extension for
