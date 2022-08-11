@@ -52,6 +52,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#building-a-document">Building a document</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#editor-support">Editor support</a>
     </li>
     </ul>
@@ -106,6 +108,35 @@ also be installed manually.  After downloading the development version, run
     <code>ruamel_yaml</code> for Anaconda installations).</p>
 </li>
 </ul>
+<h2 id="building-a-document">Building a document</h2>
+<p>Building a document using Codebraid is very similar to using Pandoc.  In many
+cases, just add <code>codebraid</code> in front of the command you would normally use for
+running Pandoc.</p>
+<p>Markdown source <code>test.md</code>:</p>
+<div class="codehilite"><pre><span></span><code>```{.python .cb-run}
+var = &#39;Hello from Python!&#39;
+var += &#39; $2^8 = {}$&#39;.format(2**8)
+<span class="sb">```</span>
+
+<span class="sb">```{.python .cb-run}</span>
+<span class="sb">print(var)</span>
+<span class="sb">```</span>
+</code></pre></div>
+
+<p>Run <code>codebraid</code>:</p>
+<div class="codehilite"><pre><span></span><code>codebraid pandoc --from markdown --to markdown test.md
+</code></pre></div>
+
+<p>Output:</p>
+<div class="codehilite"><pre><span></span><code>Hello from Python! $2^8 = 256$
+</code></pre></div>
+
+<p>To save the output, add something like <code>-o test_out.md</code> to the command.  Add
+<code>--overwrite</code> if the output file already exists.</p>
+<p>As this example illustrates, variables persist between code blocks; by
+default, all code for a given language is executed within a single process or
+session.  Code output is also cached by default so that code is only
+re-executed when modified.</p>
 <h2 id="editor-support">Editor support</h2>
 <p>There is an extension for
 <a href="https://marketplace.visualstudio.com/items?itemName=gpoore.codebraid-preview">VS Code</a>
