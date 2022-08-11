@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Geoffrey M. Poore" /><link rel="canonical" href="https://codebraid.org/getting_started/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Getting Started - Codebraid</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Getting Started";
+        var mkdocs_page_input_path = "getting_started.md";
+        var mkdocs_page_url = "/getting_started/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/text.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/markdown.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Codebraid
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Getting Started</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#editor-support">Editor support</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Codebraid</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Getting Started</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="getting-started">Getting Started</h1>
+<h2 id="installation">Installation</h2>
+<p>The <code>codebraid</code> command-line application is available from
+<a href="https://pypi.org/project/codebraid/">PyPI</a>.  It can be installed via the
+command line with <code>pip3 install codebraid</code> or <code>pip install codebraid</code>.  It is
+also available from <a href="https://anaconda.org/conda-forge/codebraid">conda-forge</a>.</p>
+<p>The <a href="https://github.com/gpoore/codebraid">development version from GitHub</a> can
+also be installed manually.  After downloading the development version, run
+<code>python3 setup.py install</code> or <code>python setup.py install</code>.</p>
+<p><strong>Additional requirements:</strong></p>
+<ul>
+<li>
+<p><a href="http://pandoc.org/">Pandoc</a> – the latest version is usually best; minimum
+    of v2.4+ but v2.17.1.1+ is recommended for <code>commonmark_x</code>.</p>
+</li>
+<li>
+<p>For Jupyter support,
+    <a href="https://pypi.org/project/jupyter-client/"><code>jupyter_client</code></a> v6.1.0+ and
+    <a href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">language kernels</a>.</p>
+</li>
+<li>
+<p>For YAML metadata support,
+    <a href="https://pypi.org/project/ruamel.yaml/"><code>ruamel.yaml</code></a> (can be
+    <code>ruamel_yaml</code> for Anaconda installations).</p>
+</li>
+</ul>
+<h2 id="editor-support">Editor support</h2>
+<p>There is an extension for
+<a href="https://marketplace.visualstudio.com/items?itemName=gpoore.codebraid-preview">VS Code</a>
+and <a href="https://open-vsx.org/extension/gpoore/codebraid-preview">VSCodium</a>.  This
+provides a document preview with features like scroll sync between the
+Markdown source and the preview.  The preview is generated with Pandoc itself,
+so all Pandoc extensions to Markdown syntax are fully supported.  The
+extension also supports code execution, with visual indicators in the preview
+to show when cached code output is stale and when code is currently running.
+Code execution does not block the preview from updating; execution is
+decoupled from the preview process, so that the preview always remains live.
+For more information and examples, see the
+<a href="https://codebraid.org/presentations/scipy2022/">presentation for SciPy 2022</a>.</p>
+<p><img alt="Animation of Codebraid Preview extension for VS Code" src="../pandoc-demo.gif" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright © 2022 Geoffrey M. Poore</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../extra.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
