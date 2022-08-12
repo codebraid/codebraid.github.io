@@ -2,12 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://codebraid.org/</loc>
-         <lastmod>2022-08-11</lastmod>
+         <lastmod>2022-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://codebraid.org/code_chunks/</loc>
+         <lastmod>2022-08-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://codebraid.org/getting_started/</loc>
-         <lastmod>2022-08-11</lastmod>
+         <lastmod>2022-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://codebraid.org/pandoc/</loc>
+         <lastmod>2022-08-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

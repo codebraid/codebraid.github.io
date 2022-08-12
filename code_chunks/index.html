@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Geoffrey M. Poore" /><link rel="canonical" href="https://codebraid.org/code_chunks/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Code Chunks - Codebraid</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Code Chunks";
+        var mkdocs_page_input_path = "code_chunks.md";
+        var mkdocs_page_url = "/code_chunks/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/text.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/markdown.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Codebraid
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting_started/">Getting Started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pandoc/">Pandoc Compatibility</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Code Chunks</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#pandoc-attribute-syntax">Pandoc attribute syntax</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#commands-classes">Commands (Classes)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#keyword-arguments">Keyword arguments</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#first-chunk-options">First chunk options</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#code-execution">Code execution</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#display">Display</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#copying">Copying</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#including-external-files">Including external files</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Codebraid</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Code Chunks</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="code-chunks">Code Chunks</h1>
+<h2 id="pandoc-attribute-syntax">Pandoc attribute syntax</h2>
+<p>Codebraid uses Pandoc&rsquo;s existing
+<a href="https://pandoc.org/MANUAL.html#extension-fenced_code_attributes">attribute syntax</a>
+to make code chunks executable and give them other roles.  Pandoc attributes
+have the general form</p>
+<div class="codehilite"><pre><span></span><code>{#id .class1 .class2 key1=value1 key2=value2}
+</code></pre></div>
+
+<p>That is, attributes are wrapped in curly braces <code>{}</code> and separated by spaces.
+An optional id attribute is indicated by a leading hash symbol <code>#</code>, while
+optional classes are indicated by leading periods <code>.</code>.  Optional key-value
+pairs are separated by an equals sign <code>=</code> with no space.  Values can be quoted
+with double quotation marks <code>"</code>, in which case literal quotation marks can be
+backslash-escaped as <code>\"</code>.  Line breaks are allowed between attributes within
+the wrapping curly braces, so a long collection of attributes is not required
+to be on a single line.</p>
+<p>For fenced code blocks, Pandoc attributes are placed after the
+opening fence, with optional separating whitespace:</p>
+<div class="codehilite"><pre><span></span><code>```{#id .class1 .class2 key1=value1 key2=value2}
+&lt;code&gt;
+```
+</code></pre></div>
+
+<p>Meanwhile, for inline code, Pandoc attributes are placed immediately after the
+closing backtick delimiter:</p>
+<div class="codehilite"><pre><span></span><code>`&lt;code&gt;`{#id .class1 .class2 key1=value1 key2=value2}
+</code></pre></div>
+
+<h2 id="commands-classes">Commands (Classes)</h2>
+<p>A code chunk (block or inline) is made executable or given a special role by
+adding a Codebraid class to its
+<a href="http://pandoc.org/MANUAL.html#fenced-code-blocks">Pandoc attributes</a>.
+For example, <code>`code`</code> is executed with Python by adding a language class
+and a Codebraid class: <code>`code`{.python .cb-run}</code>.</p>
+<p>All Codebraid classes are listed below.  These all have the form
+<code>.cb-&lt;command&gt;</code>.  Classes with the form <code>.cb.&lt;command&gt;</code> (period rather than
+hyphen) are supported for Pandoc&rsquo;s Markdown (<code>--from markdown</code>), but not for
+CommonMark-based formats like <code>commonmark_x</code> since they have a more restricted
+class syntax.  The forms shown below (<code>.cb-&lt;command&gt;</code>) should be preferred for
+compatibility across Markdown variants supported by Pandoc.</p>
+<dl>
+<dt><code>.cb-code</code></dt>
+<dd>
+<p>Display code verbatim, but do not execute it.  This is primarily useful
+when combined with other features like naming and then copying code
+chunks.</p>
+</dd>
+<dt><code>.cb-expr</code></dt>
+<dd>
+<p>Evaluate code as an expression and interpret the result as Markdown.
+Only works with inline code.  This is not currently compatible with
+Jupyter kernels.</p>
+</dd>
+<dt><code>.cb-nb</code></dt>
+<dd>
+<p>Execute code in notebook mode.  For inline code, this is
+equivalent to <code>.cb-expr</code> with verbatim output unless a Jupyter kernel is
+used, in which case rich output like plots or LaTeX will be displayed.
+For code blocks, this inserts the code verbatim, followed by any printed
+output (stdout) verbatim.  If stderr exists, it is also inserted verbatim.
+When a Jupyter kernel is used, rich output like plots or LaTeX is also
+displayed.</p>
+</dd>
+<dt><code>.cb-paste</code></dt>
+<dd>
+<p>Display code and/or output copied from one or more named code chunks.  The
+<code>copy</code> keyword is used to specify chunks to be copied.  This does not
+execute any code.  Unless <code>show</code> is specified, display options are
+inherited from the first copied code chunk.</p>
+<p>If content is copied from multiple code chunks that are executed, all code
+chunks must be in the same session and must be in sequential order without
+any omitted chunks.  This ensures that what is displayed is always
+consistent with what was executed.  If content is copied from another
+<code>.cb-paste</code> code chunk, only a single code chunk can be copied.  This
+reduces the indirection that is possible when displaying the output of
+code that has been executed.  This restriction may be removed in the
+future.</p>
+</dd>
+<dt><code>.cb-run</code></dt>
+<dd>
+<p>Run code and interpret any printed content (stdout) as Markdown.  Also
+insert stderr verbatim if it exists.  When a Jupyter kernel is used, rich
+output like plots or LaTeX is also displayed.</p>
+</dd>
+</dl>
+<h2 id="keyword-arguments">Keyword arguments</h2>
+<p>The behavior of code chunks with Codebraid classes (commands) is modified with
+keyword arguments.
+<a href="http://pandoc.org/MANUAL.html#fenced-code-blocks">Pandoc attribute syntax</a>
+allows keyword arguments of the form <code>key=value</code>, with spaces (<em>not</em> commas)
+separating subsequent keys.  <code>value</code> can be unquoted if it contains only
+letters and some symbols; otherwise, double quotation marks <code>"value"</code> are
+required.  For example,</p>
+<div class="codehilite"><pre><span></span><code>{.python key1=value1 key2=value2}
+</code></pre></div>
+
+<p>Codebraid adds support for additional keyword arguments beyond those defined
+by Pandoc.  In some cases, multiple keywords can be used for the same option.
+This is primarily for Pandoc compatibility.</p>
+<h3 id="first-chunk-options">First chunk options</h3>
+<p>Some keywords are only permitted for the first code chunk in a session (or the
+first chunk for a language, if a session is not specified and thus the default
+session is in use).  In the future, at least some of these will be able to be
+specified in the YAML metadata or another more centralized location instead.</p>
+<dl>
+<dt><code>executable</code>={string}</dt>
+<dd>
+<p>Executable to use for running or compiling code, instead of the default.
+This only applies to Codebraid&rsquo;s built-in code execution system.</p>
+</dd>
+<dt><code>executable_opts</code>={string}</dt>
+<dd>
+<p>Command-line options passed to <code>executable</code>.  This only applies to
+Codebraid&rsquo;s built-in code execution system.</p>
+</dd>
+<dt><code>args</code>={string}</dt>
+<dd>
+<p>Command-line arguments passed to code during execution.  For example, this
+could be used to add values to <code>sys.argv</code> for Python.  This only applies
+to Codebraid&rsquo;s built-in code execution system.</p>
+</dd>
+<dt><code>jupyter_kernel</code>={string}</dt>
+<dd>
+<p>Jupyter kernel to use for executing code instead of Codebraid&rsquo;s built-in
+code execution system.  Multiple Jupyter kernels can be used within a
+single document, and multiple sessions are possible per kernel.  Except
+when otherwise specified, Jupyter kernels should be usable just like the
+built-in code execution system.  If code is only executed with Jupyter
+kernels, setting <code>jupyter: true</code> in the YAML metadata can be a
+document-wide alternative to setting kernels for each individual session.</p>
+</dd>
+<dt><code>jupyter_timeout</code>={int}</dt>
+<dd>
+<p>Jupyter kernel timeout per code chunk in seconds.  The default is 60.</p>
+</dd>
+<dt><code>live_output</code>={bool}</dt>
+<dd>
+<p>Show code output (stdout and stderr) live in the terminal during code
+execution.  For Jupyter kernels, also show errors and a summary of rich
+output.  Output still appears in the document as normal.  Showing output
+can also be enabled via the command-line option <code>--live-output</code> or in the
+YAML metadata with <code>live_output: true</code>.  When <code>live_output=false</code> is set
+for a session, this setting takes precedence YAML metadata and the command
+line.</p>
+<p>All output is written to stderr, so stdout only contains the document when
+<code>--output</code> is not specified.  With Codebraid&rsquo;s built-in code execution
+system, the output for a code chunk may be delayed until all code in the
+chunk has finished executing, unless code output is line buffered or code
+manually flushes stdout and stderr.  For example, with Python you may want
+to use print functions like <code>print("text", flush=True)</code>.  Another option is
+to use Python in line-buffered mode by setting <code>executable_opts="-u"</code> in
+the first code chunk of a session.  With Jupyter kernels, the output for a
+code chunk will be delayed until all code in the chunk has finished
+executing.</p>
+</dd>
+</dl>
+<h3 id="code-execution">Code execution</h3>
+<dl>
+<dt><code>complete</code>={bool}</dt>
+<dd>
+<p>By default, code chunks must contain complete units of code (function
+definitions, loops, expressions, and so forth).  With <code>complete=false</code>,
+this is not required.  Any stdout from code chunks with <code>complete=false</code>
+is accumulated until the next code chunk with <code>complete=true</code> (the default
+value), or until the end of the session, whichever comes first.  Setting
+<code>complete</code> is incompatible with <code>outside_main=true</code>, since the <code>complete</code>
+status of code chunks with <code>outside_main=true</code> is inferred automatically.</p>
+</dd>
+<dt><code>outside_main</code>={bool}</dt>
+<dd>
+<p>This allows code chunks to overwrite the Codebraid template code when code
+is executed with Codebraid&rsquo;s built-in code execution system.  It is
+primarily useful for languages like Rust, in which code is inserted by
+default into a <code>main()</code> template.  In that case, if a session <em>starts</em>
+with one or more code chunks with <code>outside_main=true</code>, these are used
+instead of the beginning of the <code>main()</code> template.  Similarly, if a
+session <em>ends</em> with one or more code chunks with <code>outside_main=true</code>,
+these are used instead of the end of the <code>main()</code> template.  Any code
+chunks in between with the default <code>outside_main=false</code> will have their
+stdout collected on a per-chunk basis like normal.  Having code chunks
+with <code>outside_main=false</code> is not required; if there are none, the total
+accumulated stdout for a session belongs to the last code chunk in the
+session.  <code>outside_main=true</code> is incompatible with explicitly setting
+<code>complete</code>; the <code>complete</code> status of code chunks with <code>outside_main=true</code>
+is inferred automatically.</p>
+</dd>
+<dt><code>session</code>={identifier-style string}</dt>
+<dd>
+<p>By default, all code for a given language is executed in a single, shared
+session so that data and variables persist between code chunks.  This
+option allows code to be separated into multiple independent sessions.
+Session names must be Python-style identifiers.</p>
+<p>For the built-in execution system, using multiple sessions is equivalent
+to dividing code into multiple source files and executing them separately.
+For Jupyter, multiple sessions is analogous to dividing code into multiple
+Jupyter notebook.</p>
+</dd>
+</dl>
+<h3 id="display">Display</h3>
+<dl>
+<dt><code>first_number</code>/<code>startFrom</code>/<code>start-from</code>/<code>start_from</code>={int or <code>next</code>}</dt>
+<dd>
+<p>Specify the first line number for code when line numbers are displayed.
+<code>next</code> means continue from the last code in the current session.</p>
+</dd>
+<dt><code>hide</code>={<code>markup</code>, <code>copied_markup</code>, <code>code</code>, <code>stdout</code>, <code>stderr</code>, <code>expr</code>, <code>rich_output</code>, <code>all</code>}</dt>
+<dd>
+<p>Hide some or all of the elements that are displayed by default.  Elements
+can be combined.  For example, <code>hide=stdout+stderr</code>.  Note that <code>expr</code> only
+applies to <code>.cb-expr</code> or <code>.cb-nb</code> with inline code using Codebraid&rsquo;s
+built-in code execution system, since only these evaluate an expression.
+<code>rich_output</code> is currently only relevant for Jupyter kernels.</p>
+</dd>
+<dt><code>hide_markup_keys</code>={key(s)}</dt>
+<dd>
+<p>Hide the specified code chunk attribute key(s) in the Markdown source
+displayed via <code>markup</code> or <code>copied_markup</code>.  Multiple keys can be specified
+via <code>hide_markup_keys=key1+key2</code>.  <code>hide_markup_keys</code> only applies to the
+code chunk in which it is used, to determined the <code>markup</code> for that code
+chunk.  Thus, it only affects <code>copied_markup</code> indirectly.</p>
+</dd>
+<dt><code>line_numbers</code>/<code>numberLines</code>/<code>number-lines</code>/<code>number_lines</code>={bool}</dt>
+<dd>
+<p>Number code lines in code blocks.</p>
+</dd>
+<dt><code>show</code>={<code>markup</code>, <code>copied_markup</code>, <code>code</code>, <code>stdout</code>, <code>stderr</code>, <code>expr</code>, <code>rich_output</code>, <code>none</code>}</dt>
+<dd>
+<p>Override the elements that are displayed by default.  <code>expr</code> only applies
+to <code>.cb-expr</code> and to <code>.cb-nb</code> with inline code using Codebraid&rsquo;s built-in
+code execution system, since only these evaluate an expression.  Elements
+can be combined.  For example, <code>show=code+stdout</code>.</p>
+<p>Each element except <code>rich_output</code> can optionally specify a format from
+<code>raw</code>, <code>verbatim</code>, or <code>verbatim_or_empty</code>.  For example,
+<code>show=code:verbatim+stdout:raw</code>.</p>
+<ul>
+<li><code>raw</code> means interpreted as Markdown.</li>
+<li><code>verbatim</code> produces inline code or a code block, depending on context.
+    When output containing newlines is displayed <code>verbatim</code> in an inline context, the newlines are replaced with spaces.  Nothing is displayed  if there is no content (for example, nothing in stdout).</li>
+<li><code>verbatim_or_empty</code> produces inline code containing a single
+    non-breaking space or a code block containing a single empty line in the
+    event that there is no content.  It is useful when a placeholder is
+    desired, or a visual confirmation that there is indeed no output.</li>
+</ul>
+<p>For <code>rich_output</code>, the format is specified as one or more abbreviations for
+the mime types of the output to be displayed.  For example,
+<code>rich_output:plain</code> will display <code>text/plain</code> output if it exists, and
+otherwise nothing.  <code>rich_output:png|plain</code> will display a PNG image if it
+exists, or otherwise will fall back to plain text if available.  The
+following formats are currently supported:</p>
+<ul>
+<li><code>latex</code> (corresponds to <code>text/latex</code>)</li>
+<li><code>html</code> (<code>text/html</code>)</li>
+<li><code>markdown</code> (<code>text/markdown</code>)</li>
+<li><code>plain</code> (<code>text/plain</code>)</li>
+<li><code>png</code> (<code>image/png</code>)</li>
+<li><code>jpg</code> and <code>jpeg</code> (<code>image/jpeg</code>)</li>
+<li><code>svg</code> (<code>image/svg+xml</code>)</li>
+<li><code>pdf</code> (<code>application/pdf</code>)</li>
+</ul>
+<p>For <code>rich_output</code> formats with a <code>text/*</code> mime type (<code>latex</code>, <code>html</code>,
+<code>markdown</code>, <code>plain</code>), it is possible to specify whether they are displayed
+<code>raw</code>, <code>verbatim</code>, or <code>verbatim_or_empty</code>.  For example,
+<code>show=rich_output:latex:raw</code> and <code>show=rich_output:latex:verbatim</code>.  <code>raw</code>
+treats <code>latex</code> and <code>html</code> as raw content with those formats embedded within
+Markdown.  <code>raw</code> treats <code>markdown</code> and <code>plain</code> as Markdown.  When a display
+style is not specified, all <code>rich_output</code> formats with a <code>text/*</code> mime type
+are displayed <code>raw</code> by default, except for <code>plain</code> which is displayed
+<code>verbatim</code>.</p>
+<p><code>markup</code> displays the Markdown source for the inline code or code block.
+Because the Markdown source is not available in the Pandoc AST but rather
+must be recreated from it, the Markdown source displayed with <code>markup</code> may
+use a different number of backticks, quote attribute values slightly
+differently, or contain other insignificant differences from the original
+document.</p>
+<p><code>copied_markup</code> displays the Markdown source for code chunks copied via
+<code>copy</code>.</p>
+<p><code>expr</code> defaults to <code>raw</code> if a format is not specified.  <code>rich_output</code>
+defaults to <code>latex|markdown|png|jpg|svg|plain</code>.  All others default to
+<code>verbatim</code>.</p>
+</dd>
+<dt><code>example</code>={bool}</dt>
+<dd>
+<p>Insert a code block containing the Markdown source of the
+code chunk, followed by the rest of the output as normal.  This is only
+valid for inline code if the code is in a paragraph by itself.  This
+option is currently not compatible with <code>--only-code-output</code> and Codebraid
+Preview.  This option is intended primarily for documentation about
+Codebraid.</p>
+</dd>
+</dl>
+<h3 id="copying">Copying</h3>
+<p>The code or output of a code chunk can be copied by another code chunk.  Then
+the code can be executed or displayed elsewhere in the document, or the output
+can be displayed elsewhere.  A code chunk can copy content from another code
+chunk that appears after it in a document; code chunk ordering does not affect
+copying.</p>
+<dl>
+<dt><code>copy</code>={chunk name(s)}</dt>
+<dd>
+<p>Copy one or more named code chunks.  When <code>copy</code> is used with a command
+like <code>.cb-run</code> that executes code, only the code is copied from the
+designed code chunks, and it is executed as if it had been entered
+directly.  When <code>copy</code> is used with <code>.cb-code</code>, only the code is copied
+from the designated chunks and nothing is executed.  When <code>copy</code> is used
+with <code>.cb-paste</code>, both code and output are copied from the designated
+chunks, and nothing is executed.  Multiple code chunks may be copied; for
+example, <code>copy=name1+name2</code>.  In that case, the code from all chunks is
+concatenated, as is any output that is copied.  Because <code>copy</code> brings in
+code from other code chunks, the actual content of a code block or inline
+code using <code>copy</code> is discarded.  As a result, this must be empty, or a
+space or underscore can be used as a placeholder.</p>
+</dd>
+<dt><code>name</code>={identifier-style string}</dt>
+<dd>
+<p>Name a code chunk so that it can later be copied by name.  Names must be
+Python-style identifiers.</p>
+</dd>
+</dl>
+<h3 id="including-external-files">Including external files</h3>
+<dl>
+<dt><code>include_file</code>={path}</dt>
+<dd>
+<p>Include the specified file.  A leading <code>~/</code> or <code>~&lt;user&gt;/</code> is expanded to
+the user&rsquo;s home directory under all operating systems, including under
+Windows with both slashes and backslashes.</p>
+<p>When <code>include_file</code> is used with a command like <code>.cb-run</code> that executes
+code, the file is included and executed as part of the current session
+just as if the file contents had been entered directly.  When
+<code>include_file</code> is used with <code>.cb-code</code>, the file is included and displayed
+just as if it had been entered directly.  Because <code>include_file</code> brings in
+code from another file, the actual content of a code block or inline code
+using <code>include_file</code> is discarded.  As a result, this must be empty, or a
+space or underscore can be used as a placeholder.</p>
+</dd>
+<dt><code>include_encoding</code>={encoding}</dt>
+<dd>
+<p>Encoding for included file.  The default encoding is UTF-8.</p>
+</dd>
+<dt><code>include_lines</code>={lines/line ranges}</dt>
+<dd>
+<p>Include the specified lines or line ranges.  For example, <code>1-3,5,7-9,11-</code>.
+Line numbers are one-indexed.  Line ranges are inclusive, so <code>1-3</code> is <code>1</code>
+up to and including <code>3</code>.  If a range ends with a hyphen, like <code>11-</code>, then
+everything is included from the line through the end of the file.</p>
+<p>Cannot be combined with other <code>include</code> options that specify what is to be
+included.</p>
+</dd>
+<dt><code>include_regex</code>={regex}</dt>
+<dd>
+<p>Include the first segment of the file that matches
+the provided regular expression.</p>
+<p>Keep in mind that Pandoc&rsquo;s key-value attributes evaluate backslash escapes
+in values whether or not the values are quoted with double quotation
+marks, so two levels of backslash-escaping are always necessary (one for
+Pandoc&rsquo;s strings, one for the regex itself; there are no raw strings).
+Regular expressions use <em>multiline mode</em>, so <code>^</code>/<code>$</code> match the start/end
+of a line, and <code>\A</code>/<code>\Z</code> can be used to match the start/end of the file.
+Regular expressions use <em>dotall mode</em>, so <code>.</code> matches anything including
+the newline <code>\n</code>; use <code>[^\n]</code> when this is not desired.</p>
+<p>Cannot be combined with other <code>include</code> options that specify what is to
+be included.</p>
+</dd>
+<dt><code>include_start_string</code>={string}</dt>
+<dd>
+<p>Include everything from the first occurrence of this string onward.</p>
+<p>Can only be combined with other <code>include</code> options that specify the end of
+what is to be included.</p>
+</dd>
+<dt><code>include_start_regex</code>={regex}</dt>
+<dd>
+<p>Include everything from the first match of this regex onward.</p>
+<p>Can only be combined with other <code>include</code> options that specify the end of
+what is to be included.  See <code>include_regex</code> for notes on regex usage.</p>
+</dd>
+<dt><code>include_after_string</code>={string}</dt>
+<dd>
+<p>Include everything after the first occurrence of this string onward.</p>
+<p>Can only be combined with other <code>include</code> options that specify the end of
+what is to be included.</p>
+</dd>
+<dt><code>include_after_regex</code>={regex}</dt>
+<dd>
+<p>Include everything after the first match of this regex onward.</p>
+<p>Can only be combined with other <code>include</code> options that specify the end of
+what is to be included.  See <code>include_regex</code> for notes on regex usage.</p>
+</dd>
+<dt><code>include_before_string</code>={string}</dt>
+<dd>
+<p>Include everything before the first occurrence of this string.</p>
+<p>Can only be combined with other <code>include</code> options that specify the start
+of what is to be included.  If the start is specified, then the first
+occurrence after this point is used, rather than the first occurrence in
+the overall file.</p>
+</dd>
+<dt><code>include_before_regex</code>={regex}</dt>
+<dd>
+<p>Include everything before the first match of this regex.</p>
+<p>Can only be combined with other <code>include</code> options that specify the start
+of what is to be included.  If the start is specified, then the first
+match after this point is used, rather than the first match in the overall
+file.  See <code>include_regex</code> for notes on regex usage.</p>
+</dd>
+<dt><code>include_end_string</code>={string}</dt>
+<dd>
+<p>Include everything through the first occurrence of this string.</p>
+<p>Can only be combined with other <code>include</code> options that specify the start
+of what is to be included.  If the start is specified, then the first
+occurrence after this point is used, rather than the first occurrence in
+the overall file.</p>
+</dd>
+<dt><code>include_end_regex</code>={regex}</dt>
+<dd>
+<p>Include everything through the first match of this regex.</p>
+<p>Can only be combined with other <code>include</code> options that specify the start
+of what is to be included.  If the start is specified, then the first
+match after this point is used, rather than the first match in the overall
+file.  See <code>include_regex</code> for notes on regex usage.</p>
+</dd>
+</dl>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../pandoc/" class="btn btn-neutral float-left" title="Pandoc Compatibility"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright © 2022 Geoffrey M. Poore</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../pandoc/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../extra.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
